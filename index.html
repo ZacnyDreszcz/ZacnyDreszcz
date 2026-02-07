@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <!-- ===== METADATA & STYLE ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moja pierwsza strona</title>
+
+  <!-- Główny arkusz stylów -->
+  <link rel="stylesheet" href="CSS/jakies_g1.css" />
+  
+</head>
+
+<body>
+  <!-- ===== TOP BAR ===== -->
+  <!-- Przyciski sterujące w górnych rogach: zmiana motywu (prawy), menu (lewy) -->
+  <button id="themeToggle" class="theme-toggle" type="button">☀️ / 🌙</button>
+  <button id="sidebarToggle" class="sidebar-toggle" type="button">☰ Menu</button>
+
+  <!-- ===== SIDEBAR (Menu boczne) ===== -->
+  <!-- Panel po lewej stronie - wysuwane menu z nawigacją -->
+  <div id="sidebarOverlay" class="sidebar-overlay" hidden></div>
+  <aside id="sidebar" class="sidebar" aria-hidden="true">
+    <!-- Nagłówek sidebara -->
+    <div class="sidebar-header">
+      <strong>Panel boczny</strong>
+      <button id="sidebarClose" class="sidebar-close" type="button">✕</button>
+    </div>
+
+    <!-- Linki nawigacyjne -->
+    <nav class="sidebar-nav">
+      <a href="#">Home</a>
+      <a href="#">Zabawa</a>
+      <a href="https://mimo.org" target="_blank" rel="noreferrer">Mimo</a>
+    </nav>
+
+    <!-- Ctrl tablicy i tryby zabawy -->
+    <div class="sidebar-box">
+      <button id="sidebarBoardToggle" class="sidebar-action" type="button">🖊 Tablica</button>
+
+      <!-- Przyciski wyboru rozmiaru tablicy (S, M, L) -->
+      <div class="sidebar-board-sizes">
+        <button data-board-size="s" class="sidebar-action small" type="button">S</button>
+        <button data-board-size="m" class="sidebar-action small" type="button">M</button>
+        <button data-board-size="l" class="sidebar-action small" type="button">L</button>
+      </div>
+
+      <button id="sidebarFunToggle" class="sidebar-action" type="button">🎛 Tryby zabawy</button>
+
+      <p><strong>Status:</strong> działa 😎</p>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CARD ===== -->
+  <!-- Główna kartka z powitaniem i wersem -->
+  <div class="card">
+    <h1>Cześć, jestem Filip</h1>
+    <p>Uczę się HTML i ogarniam podstawy.</p>
+    <p class="srupon">To jest moja pierwsza prosta strona.</p>
+    <a class="btn" href="https://mimo.org" target="_blank" rel="noreferrer">Uczę się dalej</a>
+  </div>
+
+  <!-- ===== DRAW BOARD (Canvas) ===== -->
+  <!-- Interaktywna tablica do rysowania z toolbarem -->
+  <div id="boardWrap" class="board-wrap floating size-m">
+    <!-- Canvas element dla rysowania -->
+    <canvas id="board" width="600" height="350"></canvas>
+
+    <!-- Przycisk otworzenia toolboxa (⚙️) -->
+    <button id="toolToggle" class="tool-toggle" type="button">⚙️</button>
+
+    <!-- Toolbox - wysuwane opcje rysowania (kolory, grubość, przezroczystość) -->
+    <div id="toolbox" class="toolbox" hidden>
+      <!-- Przycisk czyszczenia canvasa -->
+      <div class="tool-row">
+        <button id="clear" class="mini" type="button">🧽 Wyczyść</button>
+      </div>
+
+      <!-- Przyciski wyboru koloru pędzla -->
+      <div class="tool-row">
+        <button class="color mini" data-color="#38bdf8" type="button">Niebieski</button>
+        <button class="color mini" data-color="#22c55e" type="button">Zielony</button>
+        <button class="color mini" data-color="#ef4444" type="button">Czerwony</button>
+      </div>
+
+      <!-- Suwak grubości pędzla -->
+      <label class="tool-row">
+        Grubość:
+        <input id="size" type="range" min="1" max="30" value="6" />
+      </label>
+
+      <!-- Suwak przezroczystości (alpha) -->
+      <label class="tool-row">
+        Opacity:
+        <input id="alpha" type="range" min="0.1" max="1" step="0.05" value="1" />
+      </label>
+    </div>
+  </div>
+
+  <!-- ===== FUN PANEL (Floating buttons) ===== -->
+  <!-- Prawy panel z przyciskami zabawy - można ciągnąć i zwijać -->
+  <div class="fun-panel">
+    <h2 id="funHeader">Tryby zabawy ▼</h2>
+
+    <!-- Główne przyciski zabawy -->
+    <div class="fun-buttons">
+      <button id="btnAlert" type="button">NIE KLIKAJ 😈</button>
+      <button id="btnRunaway" type="button">Uciekający 🐭</button>
+      <button id="btnCounter" type="button">Licznik 🧮</button>
+      <button id="btnDisco" type="button">Disco tło 🎨</button>
+      <button id="btnLiar" type="button">Kłamliwy h1 🕵️</button>
+      <button id="btnChaos" type="button">CHAOS 🧨</button>
+      <button id="btnConsole" type="button">Trolluj F12 🧠</button>
+      <button id="btnKey" type="button">Easter egg (G) 🎯</button>
+    </div>
+
+    <!-- Status wyświetlający ostatnią akcję -->
+    <div id="funStatus" class="fun-status"></div>
+    
+    <!-- Licznik kliknięć -->
+    <div id="clickCount" class="fun-counter">Kliknięcia: 0</div>
+
+    <!-- Reset wszystkich efektów -->
+    <button id="btnReset" type="button" class="fun-reset-btn">🔄 Reset</button>
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="JS/jakies_g1.js"></script>
+</body>
+</html>
