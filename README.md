@@ -1,4 +1,4 @@
-## Hi there 👋
+## Better to have a site that’s a joke than no site to joke about. 👋
 
 <!--
 **ZacnyDreszcz/ZacnyDreszcz** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
